@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zhangcong1.github.io</id>
+    <title>不管给谁打工，都要为自己学东西～ • Posts by &#34;javascript&#34; category</title>
+    <link href="https://zhangcong1.github.io" />
+    <updated>2021-07-18T11:24:59.307Z</updated>
+    <category term="Vue" />
+    <category term="React" />
+    <category term="JavaScript" />
+    <entry>
+        <id>https://zhangcong1.github.io/web/JavaScript/JavaScript/</id>
+        <title>JavaScript</title>
+        <link rel="alternate" href="https://zhangcong1.github.io/web/JavaScript/JavaScript/"/>
+        <content type="html"></content>
+        <category term="JavaScript" />
+        <updated>2021-07-18T11:24:59.307Z</updated>
+    </entry>
+</feed>

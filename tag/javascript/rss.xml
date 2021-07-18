@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>不管给谁打工，都要为自己学东西～ • Posts by &#34;javascript&#34; tag</title>
+        <link>https://zhangcong1.github.io</link>
+        <description>zc个人博客</description>
+        <language>zh-CN</language>
+        <pubDate>Sun, 18 Jul 2021 19:24:59 +0800</pubDate>
+        <lastBuildDate>Sun, 18 Jul 2021 19:24:59 +0800</lastBuildDate>
+        <category>Vue</category>
+        <category>React</category>
+        <category>JavaScript</category>
+        <item>
+            <guid isPermalink="true">https://zhangcong1.github.io/web/JavaScript/JavaScript/</guid>
+            <title>JavaScript</title>
+            <link>https://zhangcong1.github.io/web/JavaScript/JavaScript/</link>
+            <category>JavaScript</category>
+            <pubDate>Sun, 18 Jul 2021 19:24:59 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
+    </channel>
+</rss>
