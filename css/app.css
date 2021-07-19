@@ -4687,7 +4687,7 @@ code,
   transition: all 0.2s ease-in-out 0s;
 }
 .code-container td pre::before {
-  content: "";
+  /* content: ""; */
 }
 .code-container td:first-child {
   position: absolute;
