@@ -4662,9 +4662,6 @@ code,
   overflow-y: hidden;
   margin-top: 36px;
 }
-.code-container::before {
-  margin-top: 36px;
-}
 .code-container::after {
   content: "";
   display: block;
