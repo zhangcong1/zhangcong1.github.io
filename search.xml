@@ -33,4 +33,31 @@
         <tag>JavaScript</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ES6笔记</title>
+    <url>/web/JavaScript/ES6%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="let和const命令"><a class="markdownIt-Anchor" href="#let和const命令">#</a> let 和 const 命令</h1>
+<h3 id="let命令"><a class="markdownIt-Anchor" href="#let命令">#</a> let 命令</h3>
+<ul>
+<li>不存在变量提升（变量先声明后使用）</li>
+<li>暂时性死区（块级作用域）</li>
+<li>不允许重复声明</li>
+</ul>
+<h3 id="const命令"><a class="markdownIt-Anchor" href="#const命令">#</a> const 命令</h3>
+<blockquote>
+<ol>
+<li>声明只读常量，一旦声明就必须立即初始化</li>
+<li>对于复合类型（对象，数组，函数）的变量指向数据所在地址</li>
+</ol>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [];</span><br><span class="line">a.push(<span class="string">&quot;hello&quot;</span>); <span class="comment">//可执行</span></span><br><span class="line">a.length = <span class="number">0</span>;    <span class="comment">//可执行</span></span><br><span class="line">a = [<span class="string">&quot;world&quot;</span>]    <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
 </search>

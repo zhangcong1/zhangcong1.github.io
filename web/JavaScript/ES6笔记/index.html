@@ -24,12 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-
-<link rel="canonical" href="https://zhangcong1.github.io/categories/">
-
+  <meta name="keywords" content="JavaScript,ES6" />
 
 
-  <title>全部分类 |
+<link rel="canonical" href="https://zhangcong1.github.io/web/JavaScript/ES6%E7%AC%94%E8%AE%B0/">
+
+
+
+  <title>
+ES6笔记 - JavaScript |
 ZC's Blog = 不管给谁打工，都要为自己学东西～ = zc个人博客</title>
 <meta name="generator" content="Hexo 5.4.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -57,8 +60,19 @@ ZC's Blog = 不管给谁打工，都要为自己学东西～ = zc个人博客</t
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">全部分类
+  <h1 itemprop="name headline">ES6笔记
   </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-07-19 11:24:38">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-07-19T11:24:38+08:00">2021-07-19</time>
+  </span>
+</div>
+
 
           </div>
         </div>
@@ -88,12 +102,12 @@ ZC's Blog = 不管给谁打工，都要为自己学东西～ = zc个人博客</t
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevgoki5j20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicis3attqj20zk0m8k7l.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeyvx1d4j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclgi503lj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
         </ul>
       </div>
     </header>
@@ -114,10 +128,130 @@ ZC's Blog = 不管给谁打工，都要为自己学东西～ = zc个人博客</t
       <div class="inner">
         <div id="main" class="pjax">
           
-  <div class="collapse wrap">
-    <h2 class="item title"><a href="/">首页</a> <small>/</small> 目前共计 3 个分类</h2>
-    <div><h2 class="item header"><a itemprop="url" href="/categories/JavaScript/">JavaScript</a><small>( 2 )</small></h2></div><div><h2 class="item header"><a itemprop="url" href="/categories/React/">React</a><small>( 1 )</small></h2></div><div><h2 class="item header"><a itemprop="url" href="/categories/Vue/">Vue</a><small>( 1 )</small></h2></div>
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/JavaScript/" itemprop="item" rel="index" title="分类于 JavaScript"><span itemprop="name">JavaScript</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://zhangcong1.github.io/web/JavaScript/ES6%E7%AC%94%E8%AE%B0/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="张聪">
+    <meta itemprop="description" content="zc个人博客, zc个人博客">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="不管给谁打工，都要为自己学东西～">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="let和const命令"><a class="markdownIt-Anchor" href="#let和const命令">#</a> let 和 const 命令</h1>
+<h3 id="let命令"><a class="markdownIt-Anchor" href="#let命令">#</a> let 命令</h3>
+<ul>
+<li>不存在变量提升（变量先声明后使用）</li>
+<li>暂时性死区（块级作用域）</li>
+<li>不允许重复声明</li>
+</ul>
+<h3 id="const命令"><a class="markdownIt-Anchor" href="#const命令">#</a> const 命令</h3>
+<blockquote>
+<ol>
+<li>声明只读常量，一旦声明就必须立即初始化</li>
+<li>对于复合类型（对象，数组，函数）的变量指向数据所在地址</li>
+</ol>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [];</span><br><span class="line">a.push(<span class="string">&quot;hello&quot;</span>); <span class="comment">//可执行</span></span><br><span class="line">a.length = <span class="number">0</span>;    <span class="comment">//可执行</span></span><br><span class="line">a = [<span class="string">&quot;world&quot;</span>]    <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
+          <a href="/tags/ES6/" rel="tag"><i class="ic i-tag"></i> ES6</a>
+      </div>
   </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2021-07-19 12:24:04" itemprop="dateModified" datetime="2021-07-19T12:24:04+08:00">2021-07-19</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="张聪 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="张聪 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="张聪 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>张聪 <i class="ic i-at"><em>@</em></i>不管给谁打工，都要为自己学东西～
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://zhangcong1.github.io/web/JavaScript/ES6%E7%AC%94%E8%AE%B0/" title="ES6笔记">https://zhangcong1.github.io/web/JavaScript/ES6笔记/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/web/JavaScript/JavaScript/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclimtf7dj20zk0m8qav.jpg" title="JavaScript">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> JavaScript</span>
+  <h3>JavaScript</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
 
         </div>
         <div id="sidebar">
@@ -128,8 +262,12 @@ ZC's Blog = 不管给谁打工，都要为自己学东西～ = zc个人博客</t
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#let%E5%92%8Cconst%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text"> let 和 const 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#let%E5%91%BD%E4%BB%A4"><span class="toc-number">1.0.1.</span> <span class="toc-text"> let 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const%E5%91%BD%E4%BB%A4"><span class="toc-number">1.0.2.</span> <span class="toc-text"> const 命令</span></a></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/web/JavaScript/JavaScript/" rel="bookmark" title="JavaScript">JavaScript</a></li><li class="active"><a href="/web/JavaScript/ES6%E7%AC%94%E8%AE%B0/" rel="bookmark" title="ES6笔记">ES6笔记</a></li>
+        </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -254,7 +392,7 @@ ZC's Blog = 不管给谁打工，都要为自己学东西～ = zc个人博客</t
 <a href="/categories/JavaScript/" title="分类于 JavaScript">JavaScript</a>
 </div>
 
-    <span><a href="/web/JavaScript/ES6%E7%AC%94%E8%AE%B0/" title="ES6笔记">ES6笔记</a></span>
+    <span><a href="/web/JavaScript/JavaScript/" title="JavaScript">JavaScript</a></span>
   </li>
 
       
@@ -264,7 +402,7 @@ ZC's Blog = 不管给谁打工，都要为自己学东西～ = zc个人博客</t
 <a href="/categories/JavaScript/" title="分类于 JavaScript">JavaScript</a>
 </div>
 
-    <span><a href="/web/JavaScript/JavaScript/" title="JavaScript">JavaScript</a></span>
+    <span><a href="/web/JavaScript/ES6%E7%AC%94%E8%AE%B0/" title="ES6笔记">ES6笔记</a></span>
   </li>
 
       
@@ -305,7 +443,7 @@ ZC's Blog = 不管给谁打工，都要为自己学东西～ = zc个人博客</t
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: 'categories/',
+    path: 'web/JavaScript/ES6笔记/',
     favicon: {
       show: "ZC's Blog",
       hide: "ZC's Blog"

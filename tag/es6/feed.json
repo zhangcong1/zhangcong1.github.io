@@ -1,6 +1,6 @@
 {
     "version": "https://jsonfeed.org/version/1",
-    "title": "不管给谁打工，都要为自己学东西～ • All posts by \"javascript\" tag",
+    "title": "不管给谁打工，都要为自己学东西～ • All posts by \"es6\" tag",
     "description": "zc个人博客",
     "home_page_url": "https://zhangcong1.github.io",
     "items": [
@@ -13,16 +13,6 @@
             "tags": [
                 "JavaScript",
                 "ES6"
-            ]
-        },
-        {
-            "id": "https://zhangcong1.github.io/web/JavaScript/JavaScript/",
-            "url": "https://zhangcong1.github.io/web/JavaScript/JavaScript/",
-            "title": "JavaScript",
-            "date_published": "2021-07-18T11:24:59.307Z",
-            "content_html": "",
-            "tags": [
-                "JavaScript"
             ]
         }
     ]
