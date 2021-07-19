@@ -4660,6 +4660,10 @@ code,
 .code-container {
   overflow-x: scroll;
   overflow-y: hidden;
+  margin-top: 36px;
+}
+.code-container::before {
+  margin-top: 36px;
 }
 .code-container::after {
   content: "";

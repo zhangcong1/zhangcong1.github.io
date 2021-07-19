@@ -27,12 +27,11 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;const命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#const命令&#34;&gt;#&lt;/a&gt; const 命令&lt;/h3&gt;
 &lt;blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;声明只读常量，一旦声明就必须立即初始化&lt;/li&gt;
-&lt;li&gt;对于复合类型（对象，数组，函数）的变量指向数据所在地址&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;声明只读常量，一旦声明就必须立即初始化&lt;br&gt;
+对于复合类型（对象，数组，函数）的变量指向数据所在地址&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;figure class=&#34;highlight javascript&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; a = [];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;a.push(&lt;span class=&#34;string&#34;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;//可执行&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;a.length = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;    &lt;span class=&#34;comment&#34;&gt;//可执行&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;a = [&lt;span class=&#34;string&#34;&gt;&amp;quot;world&amp;quot;&lt;/span&gt;]    &lt;span class=&#34;comment&#34;&gt;//报错&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;jjj&lt;/code&gt;&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
         </item>
     </channel>

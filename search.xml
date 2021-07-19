@@ -45,12 +45,11 @@
 </ul>
 <h3 id="const命令"><a class="markdownIt-Anchor" href="#const命令">#</a> const 命令</h3>
 <blockquote>
-<ol>
-<li>声明只读常量，一旦声明就必须立即初始化</li>
-<li>对于复合类型（对象，数组，函数）的变量指向数据所在地址</li>
-</ol>
+<p>声明只读常量，一旦声明就必须立即初始化<br>
+对于复合类型（对象，数组，函数）的变量指向数据所在地址</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [];</span><br><span class="line">a.push(<span class="string">&quot;hello&quot;</span>); <span class="comment">//可执行</span></span><br><span class="line">a.length = <span class="number">0</span>;    <span class="comment">//可执行</span></span><br><span class="line">a = [<span class="string">&quot;world&quot;</span>]    <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<p><code>jjj</code></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>JavaScript</category>
