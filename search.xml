@@ -14,7 +14,8 @@
   <entry>
     <title>React笔记</title>
     <url>/web/React/React/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>yarn create react-app my-app --template typescript</p>
+]]></content>
       <categories>
         <category>React</category>
       </categories>
@@ -167,6 +168,48 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
 </blockquote>
 </blockquote>
 <h3 id="数组的空位"><a class="markdownIt-Anchor" href="#数组的空位">#</a> 数组的空位</h3>
+<h2 id="函数的扩展"><a class="markdownIt-Anchor" href="#函数的扩展">#</a> 函数的扩展</h2>
+<h3 id="函数参数的默认值"><a class="markdownIt-Anchor" href="#函数参数的默认值">#</a> 函数参数的默认值</h3>
+<h3 id="与解构赋值默认值结合使用"><a class="markdownIt-Anchor" href="#与解构赋值默认值结合使用">#</a> 与解构赋值默认值结合使用</h3>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetch</span>(<span class="params">url, &#123; method = <span class="string">&quot;GET&quot;</span> &#125; = &#123;&#125;</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(method)</span><br><span class="line">&#125;</span><br><span class="line">fetch(<span class="string">&quot;http://example.com&quot;</span>)</span><br><span class="line"><span class="comment">// &quot;GET&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="应用"><a class="markdownIt-Anchor" href="#应用">#</a> 应用</h3>
+<ul>
+<li>利用参数默认值，可以指定某一个参数不得省略，如果省略就会抛出一个错误</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throwIfMissing</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;Missing parameter&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">mustBeProvided = throwIfMissing()</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> mustBeProvided</span><br><span class="line">&#125;</span><br><span class="line">foo()</span><br><span class="line"><span class="comment">// Error: Missing parameter</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>rest 参数<br>
+注意，rest 参数之后不能再有其他参数（即只能是最后一个参数），否则报错</li>
+<li>扩展运算符</li>
+<li>代替数组的 apply 方法</li>
+<li>扩展运算符的应用
+<ul>
+<li>合并数组</li>
+<li>与解构赋值结合</li>
+<li>函数的返回值</li>
+<li>字符串</li>
+<li>实现了 Iterator 接口的对象</li>
+<li>Map 和 Set 结构，Generator 函数</li>
+</ul>
+</li>
+<li>箭头函数</li>
+</ul>
+<blockquote>
+<p>使用注意点<br>
+（1）函数体内的 this 对象，就是定义时所在的对象，而不是使用是所在的对象<br>
+（2）不可以当作构造函数，也就是说，不可以使用 new 命令，否则会抛出一个错误<br>
+（3）不可以使用 arguments 对象，该对象在函数体内不存在。如果要用，可以用 Rest 参数代替<br>
+（4）不可以使用 yield 命令，因此箭头函数不能用作 Generator 函数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.s1 = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">this</span>.s2 = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> <span class="built_in">this</span>.s1++, <span class="number">1000</span>);</span><br><span class="line">  setinterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.s2++</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> timer = <span class="keyword">new</span> Timer();</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;s1: &#x27;</span>, timer.s1), <span class="number">3100</span>);</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;s2: &#x27;</span>, timer.s2), <span class="number">3100</span>);</span><br><span class="line"><span class="comment">// s1: 3  this指向Timer函数</span></span><br><span class="line"><span class="comment">// s2: 0  this指向全局对象</span></span><br></pre></td></tr></table></figure>
+<p>箭头函数里没有自己的 this，而是引用外层的 this，当然也就不能用 call (), apply (), bind () 这些方法去改变 this 的指向 。除了 this，指向外层函数的对应变量：arguments，super，new.target。</p>
+<h2 id="对象的扩展"><a class="markdownIt-Anchor" href="#对象的扩展">#</a> 对象的扩展</h2>
+<h3 id="属性的简洁表示法"><a class="markdownIt-Anchor" href="#属性的简洁表示法">#</a> 属性的简洁表示法</h3>
+<h3 id="属性名表达式"><a class="markdownIt-Anchor" href="#属性名表达式">#</a> 属性名表达式</h3>
+<h3 id="方法的name属性"><a class="markdownIt-Anchor" href="#方法的name属性">#</a> 方法的 name 属性</h3>
+<h3 id="objectis"><a class="markdownIt-Anchor" href="#objectis">#</a> <span class="exturl" data-url="aHR0cDovL09iamVjdC5pcw==">Object.is</span>()</h3>
+<p>ES5 比较两个值是否相等，只有两个运算符：<mark>和</mark> =。他们都有缺点，前者会自动转换数据类型，后者的 NaN 不等于自身，以及 + 0 等于 - 0.<br>
+Object.is 就是用来比较两个值是否严格相等</p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -177,22 +220,214 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo</span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation</span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting</span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub</span>.</p>
-<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start">#</a> Quick Start</h2>
-<h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post">#</a> Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing</span></p>
-<h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server">#</a> Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server</span></p>
-<h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files">#</a> Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating</span></p>
-<h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites">#</a> Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment</span></p>
+    <title>ant-design-vue组件库</title>
+    <url>/web/Vue/ant-design-vue/</url>
+    <content><![CDATA[<h2 id="antdvue"><a class="markdownIt-Anchor" href="#antdvue">#</a> antdVue</h2>
+<h3 id="github拉取176版本源码"><a class="markdownIt-Anchor" href="#github拉取176版本源码">#</a> github 拉取 1.7.6 版本源码</h3>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">git clone -b <span class="number">1.7</span><span class="number">.6</span> https:<span class="comment">//github.com/zhangcong1/ant-design-vue.git</span></span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac 操作相关</title>
+    <url>/web/mac/vue3%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h2 id="mac操作相关"><a class="markdownIt-Anchor" href="#mac操作相关">#</a> Mac 操作相关</h2>
+<h3 id="mac-777权限"><a class="markdownIt-Anchor" href="#mac-777权限">#</a> Mac 777 权限</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chmod -R 777 你的文件夹名</span><br></pre></td></tr></table></figure>
+<h2 id="ssl-error-cert_untrusted"><a class="markdownIt-Anchor" href="#ssl-error-cert_untrusted">#</a> SSL Error: CERT_UNTRUSTED</h2>
+<p>这个是因为 HTTPS 的设置问题，可以有两种办法解决：</p>
+<ul>
+<li>关掉 SSL 检测<br>
+ <code>npm config set strict-ssl false</code></li>
+<li>使用 HTTP 连接的安装源<br>
+ <code>npm config set registry=&quot;http://registry.npm.taobao.org&quot;</code></li>
+</ul>
+<p>生成 SSH 公钥  <code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></p>
+<p>mac 终端执行如下两条语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/web/React/ZCDesign/</url>
+    <content><![CDATA[<h2 id="typescript"><a class="markdownIt-Anchor" href="#typescript">#</a> TypeScript</h2>
+<h4 id="一-概念编程语言类型"><a class="markdownIt-Anchor" href="#一-概念编程语言类型">#</a> 一、概念：编程语言类型</h4>
+<ul>
+<li>
+<p>动态类型语言</p>
+<p>在运行期间才会去做数据类型检查。不用指定变量类型。</p>
+</li>
+<li>
+<p>静态类型语言</p>
+<p>在编译时进行数据类型检查。</p>
+</li>
+</ul>
+<h4 id="为什么使用typescript"><a class="markdownIt-Anchor" href="#为什么使用typescript">#</a> 为什么使用 TypeScript？</h4>
+<ol>
+<li>
+<p>程序更容易理解</p>
+<blockquote>
+<p>问题：函数或者方法输入输出的参数类型，外部条件等。</p>
+<p>动态语言的约束：需要手动调试等过程。</p>
+</blockquote>
+</li>
+<li>
+<p>效率更高</p>
+<blockquote>
+<p>在不同代码块和定义中进行跳转。</p>
+<p>代码自动补全</p>
+<p>丰富的接口提示</p>
+</blockquote>
+</li>
+<li>
+<p>更少的错误</p>
+<blockquote>
+<p>编译期间能够发现大部分错误</p>
+<p>杜绝一些比较常见的错误  例如 传入 0，布尔值判断为 false</p>
+</blockquote>
+</li>
+<li>
+<p>非常好的包容性</p>
+<blockquote>
+<p>完全兼容 JavaScript</p>
+<p>第三方库可以单独编写类型文件</p>
+<p>流行项目都支持 TypeScript - React，Vue，Ant Design</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="typescript安装"><a class="markdownIt-Anchor" href="#typescript安装">#</a> TypeScript 安装</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g typescript</span><br><span class="line">tsc greeter.ts</span><br><span class="line">tsc -w greeter.ts</span><br><span class="line">npm install -g ts-node</span><br><span class="line">ts-node greeter.ts</span><br></pre></td></tr></table></figure>
+<h4 id="javascript数据类型和数据结构"><a class="markdownIt-Anchor" href="#javascript数据类型和数据结构">#</a> JavaScript 数据类型和数据结构</h4>
+<p>7 种原始类型：Boolean，Null，Undefined，Number，BigInt，String，Symbol<br>
+ 对象类型：Object</p>
+<h4 id="ts基础类型"><a class="markdownIt-Anchor" href="#ts基础类型">#</a> TS 基础类型</h4>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">basic-types.ts</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> isDone: boolean = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> age: number = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">let</span> binaryNumber: number = <span class="number">0b1111</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> firstName: string = <span class="string">&#x27;zc&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> message: string = <span class="string">`hello, <span class="subst">$&#123;firstName&#125;</span>, age is <span class="subst">$&#123;age&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> u: <span class="literal">undefined</span> = <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">let</span> n: <span class="literal">null</span> = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> numu: number = <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">let</span> numn: number = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> notSure: any = <span class="number">4</span>; <span class="comment">// 没有任何方法提示</span></span><br><span class="line">notSure = <span class="string">&#x27;string&#x27;</span>;</span><br><span class="line">notSure = <span class="literal">false</span>;</span><br><span class="line">notSure.name;  <span class="comment">//返回类型也为 any</span></span><br><span class="line">notSure.getName()</span><br><span class="line"></span><br><span class="line"><span class="comment">//联合类型</span></span><br><span class="line"><span class="keyword">let</span> numberOrstring: number | string = <span class="number">123</span>;</span><br><span class="line">numberOrstring = <span class="string">&#x27;123&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arrOfNumbers: number[] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line">arrOfNumbers.push(<span class="number">5</span>);</span><br><span class="line"><span class="comment">// 类数组</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>); <span class="comment">//IArguments</span></span><br><span class="line">  <span class="built_in">arguments</span>.length;</span><br><span class="line">  <span class="built_in">arguments</span>[<span class="number">0</span>];</span><br><span class="line">  <span class="comment">// arguments.forEach(); // 类型“IArguments”上不存在属性“forEach”</span></span><br><span class="line">  <span class="comment">// let arr: any[] = arguments;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 元组</span></span><br><span class="line"><span class="keyword">let</span> user: [string, number] = [<span class="string">&#x27;zc&#x27;</span>, <span class="number">1</span>];</span><br><span class="line">user = [<span class="string">&#x27;ZC&#x27;</span>, <span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="interface-接口"><a class="markdownIt-Anchor" href="#interface-接口">#</a> Interface 接口</h4>
+<ul>
+<li>对对象的形状（shape）进行描述</li>
+<li>对类（class）进行抽象</li>
+<li>Duck Typing（鸭子类型）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">interface IPerson &#123;</span><br><span class="line">  readonly id: number;</span><br><span class="line">  name: string;</span><br><span class="line">  age: number;</span><br><span class="line">  gender?: string;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person: IPerson = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;zc&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">24</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>readonly 是用在属性上，const 是用在变量上</p>
+</blockquote>
+<h4 id="函数"><a class="markdownIt-Anchor" href="#函数">#</a> 函数</h4>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1.函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x: number, y: number = <span class="number">10</span>, z?: number</span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> z === <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y + z;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> result = add(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">// 2.函数表达式</span></span><br><span class="line"><span class="comment">// 类型推断 (x: number, y?: number, z?: number) =&gt; number</span></span><br><span class="line"><span class="keyword">const</span> add1 = <span class="function"><span class="keyword">function</span> (<span class="params">x: number, y: number = <span class="number">10</span>, z?: number</span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> z === <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y + z;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// let add2: number = add1;</span></span><br><span class="line"><span class="keyword">let</span> arr2: <span class="function">(<span class="params">x: number, y?: number, z?: number</span>) =&gt;</span> number = add1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;123&#x27;</span>;</span><br><span class="line"><span class="comment">// str = 123;</span></span><br></pre></td></tr></table></figure>
+<h4 id="类-class"><a class="markdownIt-Anchor" href="#类-class">#</a> 类 Class</h4>
+<ul>
+<li>类：定义了一切事物的抽象特点</li>
+<li>对象（Object）：类的实例</li>
+<li>面向对象三大特性：封装，继承，多态</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 修饰符 public private protected</span></span><br><span class="line"><span class="comment">// static </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  public name: string;</span><br><span class="line">  <span class="keyword">static</span> categories: string[] = [<span class="string">&#x27;mammal&#x27;</span>, <span class="string">&#x27;bird&#x27;</span>];</span><br><span class="line">  <span class="keyword">static</span> <span class="function"><span class="title">isAnimal</span>(<span class="params">a</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a <span class="keyword">instanceof</span> Animal;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">name: string</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">run</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span> is running`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> snack = <span class="keyword">new</span> Animal(<span class="string">&#x27;zc&#x27;</span>);</span><br><span class="line">snack.run();</span><br><span class="line">snack.name = <span class="string">&#x27;zczc&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(Animal.isAnimal(snack))</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">bark</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span> is barking`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> dog = <span class="keyword">new</span> Dog(<span class="string">&#x27;zc&#x27;</span>);</span><br><span class="line">dog.run();</span><br><span class="line">dog.bark();</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="title">constructor</span> (<span class="params">name</span>) &#123;</span><br><span class="line">    <span class="built_in">super</span>(name);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">run</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`miao, <span class="subst">$&#123;<span class="built_in">super</span>.run()&#125;</span>`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> cat = <span class="keyword">new</span> Cat(<span class="string">&#x27;zc&#x27;</span>);</span><br><span class="line">cat.run()</span><br></pre></td></tr></table></figure>
+<h4 id="类和接口-implements"><a class="markdownIt-Anchor" href="#类和接口-implements">#</a> 类和接口 implements</h4>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">interface IRadio &#123;</span><br><span class="line">  switchRadio(triggerL?: boolean): <span class="keyword">void</span></span><br><span class="line">&#125;</span><br><span class="line">interface IRadioWithBattery <span class="keyword">extends</span> IRadio&#123;</span><br><span class="line">  checkBatteryStatus()</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> <span class="title">implements</span> <span class="title">IRadio</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">switchRadio</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CellPhone</span> <span class="title">implements</span> <span class="title">IRadioWithBattery</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">switchRadio</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">checkBatteryStatus</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="枚举"><a class="markdownIt-Anchor" href="#枚举">#</a> 枚举</h4>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 枚举  常量枚举</span></span><br><span class="line"><span class="keyword">const</span> enum Direction &#123;</span><br><span class="line">  Up = <span class="string">&#x27;UP&#x27;</span>,</span><br><span class="line">  Down = <span class="string">&#x27;DOWN&#x27;</span>,</span><br><span class="line">  Left = <span class="string">&#x27;LEFT&#x27;</span>,</span><br><span class="line">  Right = <span class="string">&#x27;RIGHT&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Direction.Up)</span><br><span class="line"><span class="built_in">console</span>.log(Direction[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>基础类型
+<ul>
+<li>boolean, number, string, number[], Array<number>, 元组 Tuple [string, number], enum Color {Red, Green, Blue}, any, null, undefined<br>
+ 联合类型 number｜string</li>
+</ul>
+</li>
+<li>复杂类型</li>
+<li>接口 - Interface</li>
+<li>对对象的形状进行描述</li>
+<li>对类进行抽象</li>
+<li>Duck Typing</li>
+<li>类 - Class</li>
+<li>泛型 - Generics</li>
+<li>约束泛型 extends</li>
+<li>声明文件<br>
+类型别名 type<br>
+ 类型断言 as</li>
+</ul>
+<h2 id="react"><a class="markdownIt-Anchor" href="#react">#</a> React</h2>
+<ul>
+<li>useState</li>
+<li>useEffect</li>
+<li>自定义 Hook</li>
+<li>useRef</li>
+<li>useContext</li>
+</ul>
+<h2 id="组件测试"><a class="markdownIt-Anchor" href="#组件测试">#</a> 组件测试</h2>
+<ul>
+<li>jest</li>
+<li>react-testing-libirary</li>
+<li>基础断言</li>
+<li>行为模拟</li>
+<li>mock 模拟</li>
+<li>mock 实现</li>
+</ul>
+<h2 id="项目启动"><a class="markdownIt-Anchor" href="#项目启动">#</a> 项目启动</h2>
+<p>npx create-react-app zc-design --typescript</p>
+<p>npx：避免全局安装模块，调用项目内部安装的模块</p>
+<h2 id="新版-create-react-app-添加less环境配置"><a class="markdownIt-Anchor" href="#新版-create-react-app-添加less环境配置">#</a> 新版 create-react-app 添加 less 环境配置</h2>
+<ol>
+<li>安装 less</li>
+</ol>
+<p>npm install less-loader less --save-dev<br>
+2. 查找 node_modules 下面的 react-scripts/config/webpack.config.js</p>
+<p>默认已经帮你配置了 sass 环境 (只要安装 sass 环境 npm install sass-loader node-sass --save-dev)</p>
+<p>const lessRegex = /.less/;
+const lessModuleRegex = /\.module\.less/;</p>
+<h2 id="react-ts"><a class="markdownIt-Anchor" href="#react-ts">#</a> react + ts</h2>
+<ul>
+<li>React.FunctionComponent&lt;P = {}&gt;</li>
+</ul>
+<h2 id="组件测试-2"><a class="markdownIt-Anchor" href="#组件测试-2">#</a> 组件测试</h2>
+<p>测试的重要性：</p>
+<ul>
+<li>高质量的代码</li>
+<li>更早的发现 bug，减少成本</li>
+<li>让重构和升级变得更加容易和可靠</li>
+<li>让你的开发流程更加敏捷</li>
+</ul>
+<p>jest</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>React笔记</title>
+    <url>/web/React/umi/</url>
+    <content><![CDATA[<h2 id="使用-umijs-搭建-react项目"><a class="markdownIt-Anchor" href="#使用-umijs-搭建-react项目">#</a> 使用 UmiJs 搭建 React 项目</h2>
+<p>UmiJs 是一个可插拔的企业级 react 应用框架，集成 react，react-router，ant-design 等项目中常用的依赖包，可通过脚手架快速生成项目。</p>
+<h3 id="umijs-特点"><a class="markdownIt-Anchor" href="#umijs-特点">#</a> UmiJs 特点</h3>
+<ul>
+<li>可扩展</li>
+<li>开箱即用 s</li>
+<li>企业级</li>
+<li>大量自研</li>
+<li>完备路由</li>
+<li>最新框架</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UmiJs2</span><br><span class="line">yarn create umi</span><br><span class="line">UmiJs3</span><br><span class="line">yarn create @umijs/umi-app</span><br></pre></td></tr></table></figure>
+<p>.umirc.ts 文件：路由配置，插件配置<br>
+自动创建 page 及路由，动态路由 $id.js  [id].js</p>
+<p>![截屏 2021-11-19 22.34.01](/Users/zhangcong/Desktop/ 我的项目 / 博客 /hexo/source/_posts/web/React/UmiJs/ 截屏 2021-11-19 22.34.01.png)</p>
+<p>![截屏 2021-11-19 22.43.29](/Users/zhangcong/Desktop/ 我的项目 / 博客 /hexo/source/_posts/web/React/UmiJs/ 截屏 2021-11-19 22.43.29.png)</p>
+<h2 id="dva"><a class="markdownIt-Anchor" href="#dva">#</a> Dva</h2>
+<p>models 文件夹<br>
+ state  reducers 同步  effects 异步</p>
+<h2 id="react-hooks"><a class="markdownIt-Anchor" href="#react-hooks">#</a> React Hooks</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">useEffect(()=&gt;&#123;&#125;, 可选值)</span><br><span class="line">// 不传，每次都会触发</span><br><span class="line">// 传 [] ,只会初始化执行一次</span><br><span class="line">// 传 [value] , value值改变触发</span><br><span class="line">useLayoutEffect  所有dom渲染完成后才同步执行effect，通常用来做dom相关操作</span><br><span class="line">useMemo 缓存 只要state不改变就不会重新渲染</span><br><span class="line">useCallback 函数缓存</span><br><span class="line"></span><br><span class="line">useContext</span><br><span class="line">useReducer</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
   </entry>
 </search>

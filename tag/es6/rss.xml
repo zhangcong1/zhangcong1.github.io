@@ -11,6 +11,7 @@
         <category>React</category>
         <category>JavaScript</category>
         <category>ES6</category>
+        <category>Mac</category>
         <item>
             <guid isPermalink="true">https://zhangcong1.github.io/web/JavaScript/ES6%E7%AC%94%E8%AE%B0/</guid>
             <title>ES6笔记</title>
@@ -149,6 +150,48 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;数组的空位&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数组的空位&#34;&gt;#&lt;/a&gt; 数组的空位&lt;/h3&gt;
+&lt;h2 id=&#34;函数的扩展&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数的扩展&#34;&gt;#&lt;/a&gt; 函数的扩展&lt;/h2&gt;
+&lt;h3 id=&#34;函数参数的默认值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#函数参数的默认值&#34;&gt;#&lt;/a&gt; 函数参数的默认值&lt;/h3&gt;
+&lt;h3 id=&#34;与解构赋值默认值结合使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#与解构赋值默认值结合使用&#34;&gt;#&lt;/a&gt; 与解构赋值默认值结合使用&lt;/h3&gt;
+&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;fetch&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;url, &amp;#123; method = &lt;span class=&#34;string&#34;&gt;&amp;quot;GET&amp;quot;&lt;/span&gt; &amp;#125; = &amp;#123;&amp;#125;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(method)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fetch(&lt;span class=&#34;string&#34;&gt;&amp;quot;http://example.com&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// &amp;quot;GET&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;应用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#应用&#34;&gt;#&lt;/a&gt; 应用&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;利用参数默认值，可以指定某一个参数不得省略，如果省略就会抛出一个错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;throwIfMissing&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;Error&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;Missing parameter&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;foo&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;mustBeProvided = throwIfMissing()&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; mustBeProvided&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;foo()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// Error: Missing parameter&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;rest 参数&lt;br&gt;
+注意，rest 参数之后不能再有其他参数（即只能是最后一个参数），否则报错&lt;/li&gt;
+&lt;li&gt;扩展运算符&lt;/li&gt;
+&lt;li&gt;代替数组的 apply 方法&lt;/li&gt;
+&lt;li&gt;扩展运算符的应用
+&lt;ul&gt;
+&lt;li&gt;合并数组&lt;/li&gt;
+&lt;li&gt;与解构赋值结合&lt;/li&gt;
+&lt;li&gt;函数的返回值&lt;/li&gt;
+&lt;li&gt;字符串&lt;/li&gt;
+&lt;li&gt;实现了 Iterator 接口的对象&lt;/li&gt;
+&lt;li&gt;Map 和 Set 结构，Generator 函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;箭头函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用注意点&lt;br&gt;
+（1）函数体内的 this 对象，就是定义时所在的对象，而不是使用是所在的对象&lt;br&gt;
+（2）不可以当作构造函数，也就是说，不可以使用 new 命令，否则会抛出一个错误&lt;br&gt;
+（3）不可以使用 arguments 对象，该对象在函数体内不存在。如果要用，可以用 Rest 参数代替&lt;br&gt;
+（4）不可以使用 yield 命令，因此箭头函数不能用作 Generator 函数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Timer&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;built_in&#34;&gt;this&lt;/span&gt;.s1 = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;built_in&#34;&gt;this&lt;/span&gt;.s2 = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;built_in&#34;&gt;setInterval&lt;/span&gt;(&lt;span class=&#34;function&#34;&gt;() =&amp;gt;&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;this&lt;/span&gt;.s1++, &lt;span class=&#34;number&#34;&gt;1000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  setinterval(&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;this&lt;/span&gt;.s2++&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;#125;, &lt;span class=&#34;number&#34;&gt;1000&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; timer = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; Timer();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;setTimeout&lt;/span&gt;(&lt;span class=&#34;function&#34;&gt;() =&amp;gt;&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;string&#34;&gt;&amp;#x27;s1: &amp;#x27;&lt;/span&gt;, timer.s1), &lt;span class=&#34;number&#34;&gt;3100&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;setTimeout&lt;/span&gt;(&lt;span class=&#34;function&#34;&gt;() =&amp;gt;&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;console&lt;/span&gt;.log(&lt;span class=&#34;string&#34;&gt;&amp;#x27;s2: &amp;#x27;&lt;/span&gt;, timer.s2), &lt;span class=&#34;number&#34;&gt;3100&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// s1: 3  this指向Timer函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// s2: 0  this指向全局对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;箭头函数里没有自己的 this，而是引用外层的 this，当然也就不能用 call (), apply (), bind () 这些方法去改变 this 的指向 。除了 this，指向外层函数的对应变量：arguments，super，new.target。&lt;/p&gt;
+&lt;h2 id=&#34;对象的扩展&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#对象的扩展&#34;&gt;#&lt;/a&gt; 对象的扩展&lt;/h2&gt;
+&lt;h3 id=&#34;属性的简洁表示法&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#属性的简洁表示法&#34;&gt;#&lt;/a&gt; 属性的简洁表示法&lt;/h3&gt;
+&lt;h3 id=&#34;属性名表达式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#属性名表达式&#34;&gt;#&lt;/a&gt; 属性名表达式&lt;/h3&gt;
+&lt;h3 id=&#34;方法的name属性&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#方法的name属性&#34;&gt;#&lt;/a&gt; 方法的 name 属性&lt;/h3&gt;
+&lt;h3 id=&#34;objectis&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#objectis&#34;&gt;#&lt;/a&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL09iamVjdC5pcw==&#34;&gt;Object.is&lt;/span&gt;()&lt;/h3&gt;
+&lt;p&gt;ES5 比较两个值是否相等，只有两个运算符：&lt;mark&gt;和&lt;/mark&gt; =。他们都有缺点，前者会自动转换数据类型，后者的 NaN 不等于自身，以及 + 0 等于 - 0.&lt;br&gt;
+Object.is 就是用来比较两个值是否严格相等&lt;/p&gt;
  ]]></description>
         </item>
     </channel>

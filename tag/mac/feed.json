@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "不管给谁打工，都要为自己学东西～ • All posts by \"mac\" tag",
+    "description": "zc个人博客",
+    "home_page_url": "https://zhangcong1.github.io",
+    "items": [
+        {
+            "id": "https://zhangcong1.github.io/web/mac/vue3%E5%9F%BA%E7%A1%80/",
+            "url": "https://zhangcong1.github.io/web/mac/vue3%E5%9F%BA%E7%A1%80/",
+            "title": "Mac 操作相关",
+            "date_published": "2021-07-31T03:22:50.439Z",
+            "content_html": "<h2 id=\"mac操作相关\"><a class=\"markdownIt-Anchor\" href=\"#mac操作相关\">#</a> Mac 操作相关</h2>\n<h3 id=\"mac-777权限\"><a class=\"markdownIt-Anchor\" href=\"#mac-777权限\">#</a> Mac 777 权限</h3>\n<figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">sudo chmod -R 777 你的文件夹名</span><br></pre></td></tr></table></figure>\n<h2 id=\"ssl-error-cert_untrusted\"><a class=\"markdownIt-Anchor\" href=\"#ssl-error-cert_untrusted\">#</a> SSL Error: CERT_UNTRUSTED</h2>\n<p>这个是因为 HTTPS 的设置问题，可以有两种办法解决：</p>\n<ul>\n<li>关掉 SSL 检测<br>\n <code>npm config set strict-ssl false</code></li>\n<li>使用 HTTP 连接的安装源<br>\n <code>npm config set registry=&quot;http://registry.npm.taobao.org&quot;</code></li>\n</ul>\n<p>生成 SSH 公钥  <code>ssh-keygen -t rsa -C &quot;这里换上你的邮箱&quot;</code></p>\n<p>mac 终端执行如下两条语句：</p>\n<figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">git config --global --unset http.proxy</span><br><span class=\"line\">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>",
+            "tags": [
+                "Mac"
+            ]
+        }
+    ]
+}

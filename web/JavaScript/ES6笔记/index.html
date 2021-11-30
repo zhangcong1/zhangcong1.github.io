@@ -102,12 +102,12 @@ ZC's Blog = 不管给谁打工，都要为自己学东西～ = zc个人博客</t
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipesng5oej20zk0m87d4.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclize41wj20zk0m87gk.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclx6phq6j20zk0m8e36.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeudstjqj20zk0m8k3r.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeuibk9fj20zk0m8ay2.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
         </ul>
       </div>
     </header>
@@ -284,6 +284,48 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
 </blockquote>
 </blockquote>
 <h3 id="数组的空位"><a class="markdownIt-Anchor" href="#数组的空位">#</a> 数组的空位</h3>
+<h2 id="函数的扩展"><a class="markdownIt-Anchor" href="#函数的扩展">#</a> 函数的扩展</h2>
+<h3 id="函数参数的默认值"><a class="markdownIt-Anchor" href="#函数参数的默认值">#</a> 函数参数的默认值</h3>
+<h3 id="与解构赋值默认值结合使用"><a class="markdownIt-Anchor" href="#与解构赋值默认值结合使用">#</a> 与解构赋值默认值结合使用</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetch</span>(<span class="params">url, &#123; method = <span class="string">&quot;GET&quot;</span> &#125; = &#123;&#125;</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(method)</span><br><span class="line">&#125;</span><br><span class="line">fetch(<span class="string">&quot;http://example.com&quot;</span>)</span><br><span class="line"><span class="comment">// &quot;GET&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="应用"><a class="markdownIt-Anchor" href="#应用">#</a> 应用</h3>
+<ul>
+<li>利用参数默认值，可以指定某一个参数不得省略，如果省略就会抛出一个错误</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throwIfMissing</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;Missing parameter&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">mustBeProvided = throwIfMissing()</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> mustBeProvided</span><br><span class="line">&#125;</span><br><span class="line">foo()</span><br><span class="line"><span class="comment">// Error: Missing parameter</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>rest 参数<br>
+注意，rest 参数之后不能再有其他参数（即只能是最后一个参数），否则报错</li>
+<li>扩展运算符</li>
+<li>代替数组的 apply 方法</li>
+<li>扩展运算符的应用
+<ul>
+<li>合并数组</li>
+<li>与解构赋值结合</li>
+<li>函数的返回值</li>
+<li>字符串</li>
+<li>实现了 Iterator 接口的对象</li>
+<li>Map 和 Set 结构，Generator 函数</li>
+</ul>
+</li>
+<li>箭头函数</li>
+</ul>
+<blockquote>
+<p>使用注意点<br>
+（1）函数体内的 this 对象，就是定义时所在的对象，而不是使用是所在的对象<br>
+（2）不可以当作构造函数，也就是说，不可以使用 new 命令，否则会抛出一个错误<br>
+（3）不可以使用 arguments 对象，该对象在函数体内不存在。如果要用，可以用 Rest 参数代替<br>
+（4）不可以使用 yield 命令，因此箭头函数不能用作 Generator 函数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.s1 = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">this</span>.s2 = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> <span class="built_in">this</span>.s1++, <span class="number">1000</span>);</span><br><span class="line">  setinterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.s2++</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> timer = <span class="keyword">new</span> Timer();</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;s1: &#x27;</span>, timer.s1), <span class="number">3100</span>);</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;s2: &#x27;</span>, timer.s2), <span class="number">3100</span>);</span><br><span class="line"><span class="comment">// s1: 3  this指向Timer函数</span></span><br><span class="line"><span class="comment">// s2: 0  this指向全局对象</span></span><br></pre></td></tr></table></figure>
+<p>箭头函数里没有自己的 this，而是引用外层的 this，当然也就不能用 call (), apply (), bind () 这些方法去改变 this 的指向 。除了 this，指向外层函数的对应变量：arguments，super，new.target。</p>
+<h2 id="对象的扩展"><a class="markdownIt-Anchor" href="#对象的扩展">#</a> 对象的扩展</h2>
+<h3 id="属性的简洁表示法"><a class="markdownIt-Anchor" href="#属性的简洁表示法">#</a> 属性的简洁表示法</h3>
+<h3 id="属性名表达式"><a class="markdownIt-Anchor" href="#属性名表达式">#</a> 属性名表达式</h3>
+<h3 id="方法的name属性"><a class="markdownIt-Anchor" href="#方法的name属性">#</a> 方法的 name 属性</h3>
+<h3 id="objectis"><a class="markdownIt-Anchor" href="#objectis">#</a> <span class="exturl" data-url="aHR0cDovL09iamVjdC5pcw==">Object.is</span>()</h3>
+<p>ES5 比较两个值是否相等，只有两个运算符：<mark>和</mark> =。他们都有缺点，前者会自动转换数据类型，后者的 NaN 不等于自身，以及 + 0 等于 - 0.<br>
+Object.is 就是用来比较两个值是否严格相等</p>
 
       <div class="tags">
           <a href="/tags/JavaScript/" rel="tag"><i class="ic i-tag"></i> JavaScript</a>
@@ -299,7 +341,7 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2021-07-20 15:03:24" itemprop="dateModified" datetime="2021-07-20T15:03:24+08:00">2021-07-20</time>
+    <time title="修改时间：2021-07-30 23:28:39" itemprop="dateModified" datetime="2021-07-30T23:28:39+08:00">2021-07-30</time>
   </span>
 </div>
 
@@ -354,7 +396,7 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
     <div class="item left">
       
 
-  <a href="/web/JavaScript/JavaScript/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeyhsblkj20zk0m81kx.jpg" title="JavaScript">
+  <a href="/web/JavaScript/JavaScript/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclwuom7cj20zk0m8dvn.jpg" title="JavaScript">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> JavaScript</span>
   <h3>JavaScript</h3>
@@ -362,6 +404,14 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
 
     </div>
     <div class="item right">
+      
+
+  <a href="/web/Vue/ant-design-vue/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicm0fdw5cj20zk0m8hdt.jpg" title="ant-design-vue组件库">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Vue</span>
+  <h3>ant-design-vue组件库</h3>
+  </a>
+
     </div>
 </div>
 
@@ -378,7 +428,7 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#let%E5%92%8Cconst%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text"> let 和 const 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#let%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text"> let 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const%E5%91%BD%E4%BB%A4"><span class="toc-number">1.2.</span> <span class="toc-text"> const 命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text"> 变量的解构赋值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-number">2.1.</span> <span class="toc-text"> 数组的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-number">2.2.</span> <span class="toc-text"> 对象的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-number">2.3.</span> <span class="toc-text"> 字符串的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E5%92%8C%E5%B8%83%E5%B0%94%E5%80%BC%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-number">2.4.</span> <span class="toc-text"> 数值和布尔值的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-number">2.5.</span> <span class="toc-text"> 函数参数的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E9%80%94"><span class="toc-number">2.6.</span> <span class="toc-text"> 用途</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">3.</span> <span class="toc-text"> 字符串的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E7%9A%84unicode%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text"> 字符的 Unicode 表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#codepointat"><span class="toc-number">3.2.</span> <span class="toc-text"> codePointAt()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stringfromcodepoint"><span class="toc-number">3.3.</span> <span class="toc-text"> String.fromCodePoint()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%81%8D%E5%8E%86%E5%99%A8%E6%8E%A5%E5%8F%A3"><span class="toc-number">3.4.</span> <span class="toc-text"> 字符串的遍历器接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#at"><span class="toc-number">3.5.</span> <span class="toc-text"> at()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#includes-startswith-endswith"><span class="toc-number">3.6.</span> <span class="toc-text"> includes(), startsWith(), endsWith()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#repeatn"><span class="toc-number">3.7.</span> <span class="toc-text"> repeat(n)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padstart-padend-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%A1%A5%E5%85%A8"><span class="toc-number">3.8.</span> <span class="toc-text"> padStart (), padEnd () 字符串的补全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">3.9.</span> <span class="toc-text"> 模板字符串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">4.</span> <span class="toc-text"> 正则的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#regexp%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-number">4.1.</span> <span class="toc-text"> RegExp 构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%AD%A3%E5%88%99%E6%96%B9%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text"> 字符串的正则方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">5.</span> <span class="toc-text"> 数值的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%92%8C%E5%85%AB%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text"> 二进制和八进制表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#numberisfinite-numberisnan-numberisinteger"><span class="toc-number">5.2.</span> <span class="toc-text"> Number.isFinite(), Number.isNaN(), Number.isInteger(),</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#math%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">5.3.</span> <span class="toc-text"> Math 对象的扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">5.4.</span> <span class="toc-text"> 指数运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">6.</span> <span class="toc-text"> 数组的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#arrayfrom"><span class="toc-number">6.1.</span> <span class="toc-text"> Array.from()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#arrayof"><span class="toc-number">6.2.</span> <span class="toc-text"> Array.of()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84copywithin"><span class="toc-number">6.3.</span> <span class="toc-text"> 数组实例的 copyWithin ()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84find%E5%92%8Cfindindex"><span class="toc-number">6.4.</span> <span class="toc-text"> 数组实例的 find () 和 findIndex ()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84fill"><span class="toc-number">6.5.</span> <span class="toc-text"> 数组实例的 fill ()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84entries-keys-%E5%92%8C-values"><span class="toc-number">6.6.</span> <span class="toc-text"> 数组实例的 entries (), keys () 和 values ()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84includes"><span class="toc-number">6.7.</span> <span class="toc-text"> 数组实例的 includes ()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E7%A9%BA%E4%BD%8D"><span class="toc-number">6.8.</span> <span class="toc-text"> 数组的空位</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#let%E5%92%8Cconst%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text"> let 和 const 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#let%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text"> let 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const%E5%91%BD%E4%BB%A4"><span class="toc-number">1.2.</span> <span class="toc-text"> const 命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text"> 变量的解构赋值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-number">2.1.</span> <span class="toc-text"> 数组的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-number">2.2.</span> <span class="toc-text"> 对象的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-number">2.3.</span> <span class="toc-text"> 字符串的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E5%92%8C%E5%B8%83%E5%B0%94%E5%80%BC%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-number">2.4.</span> <span class="toc-text"> 数值和布尔值的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-number">2.5.</span> <span class="toc-text"> 函数参数的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E9%80%94"><span class="toc-number">2.6.</span> <span class="toc-text"> 用途</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">3.</span> <span class="toc-text"> 字符串的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E7%9A%84unicode%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text"> 字符的 Unicode 表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#codepointat"><span class="toc-number">3.2.</span> <span class="toc-text"> codePointAt()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stringfromcodepoint"><span class="toc-number">3.3.</span> <span class="toc-text"> String.fromCodePoint()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%81%8D%E5%8E%86%E5%99%A8%E6%8E%A5%E5%8F%A3"><span class="toc-number">3.4.</span> <span class="toc-text"> 字符串的遍历器接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#at"><span class="toc-number">3.5.</span> <span class="toc-text"> at()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#includes-startswith-endswith"><span class="toc-number">3.6.</span> <span class="toc-text"> includes(), startsWith(), endsWith()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#repeatn"><span class="toc-number">3.7.</span> <span class="toc-text"> repeat(n)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padstart-padend-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%A1%A5%E5%85%A8"><span class="toc-number">3.8.</span> <span class="toc-text"> padStart (), padEnd () 字符串的补全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">3.9.</span> <span class="toc-text"> 模板字符串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">4.</span> <span class="toc-text"> 正则的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#regexp%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-number">4.1.</span> <span class="toc-text"> RegExp 构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%AD%A3%E5%88%99%E6%96%B9%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text"> 字符串的正则方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">5.</span> <span class="toc-text"> 数值的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%92%8C%E5%85%AB%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text"> 二进制和八进制表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#numberisfinite-numberisnan-numberisinteger"><span class="toc-number">5.2.</span> <span class="toc-text"> Number.isFinite(), Number.isNaN(), Number.isInteger(),</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#math%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">5.3.</span> <span class="toc-text"> Math 对象的扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">5.4.</span> <span class="toc-text"> 指数运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">6.</span> <span class="toc-text"> 数组的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#arrayfrom"><span class="toc-number">6.1.</span> <span class="toc-text"> Array.from()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#arrayof"><span class="toc-number">6.2.</span> <span class="toc-text"> Array.of()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84copywithin"><span class="toc-number">6.3.</span> <span class="toc-text"> 数组实例的 copyWithin ()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84find%E5%92%8Cfindindex"><span class="toc-number">6.4.</span> <span class="toc-text"> 数组实例的 find () 和 findIndex ()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84fill"><span class="toc-number">6.5.</span> <span class="toc-text"> 数组实例的 fill ()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84entries-keys-%E5%92%8C-values"><span class="toc-number">6.6.</span> <span class="toc-text"> 数组实例的 entries (), keys () 和 values ()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E7%9A%84includes"><span class="toc-number">6.7.</span> <span class="toc-text"> 数组实例的 includes ()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E7%A9%BA%E4%BD%8D"><span class="toc-number">6.8.</span> <span class="toc-text"> 数组的空位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">7.</span> <span class="toc-text"> 函数的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-number">7.1.</span> <span class="toc-text"> 函数参数的默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E9%BB%98%E8%AE%A4%E5%80%BC%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">7.2.</span> <span class="toc-text"> 与解构赋值默认值结合使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">7.3.</span> <span class="toc-text"> 应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">8.</span> <span class="toc-text"> 对象的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E7%9A%84%E7%AE%80%E6%B4%81%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">8.1.</span> <span class="toc-text"> 属性的简洁表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%90%8D%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">8.2.</span> <span class="toc-text"> 属性名表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%9A%84name%E5%B1%9E%E6%80%A7"><span class="toc-number">8.3.</span> <span class="toc-text"> 方法的 name 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#objectis"><span class="toc-number">8.4.</span> <span class="toc-text"> Object.is()</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -396,19 +446,19 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">5</span>
+        <span class="count">8</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">3</span>
+        <span class="count">4</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">4</span>
+        <span class="count">5</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -470,10 +520,12 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
 
   <ul id="quick">
     <li class="prev pjax">
+        <a href="/web/JavaScript/JavaScript/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
+        <a href="/web/Vue/ant-design-vue/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -495,10 +547,10 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/JavaScript/" title="分类于 JavaScript">JavaScript</a>
+<a href="/categories/React/" title="分类于 React">React</a>
 </div>
 
-    <span><a href="/web/JavaScript/JavaScript/" title="JavaScript">JavaScript</a></span>
+    <span><a href="/web/React/React/" title="React笔记">React笔记</a></span>
   </li>
 
       
@@ -515,19 +567,20 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Vue/" title="分类于 Vue">Vue</a>
 </div>
 
-    <span><a href="/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/web/Vue/ant-design-vue/" title="ant-design-vue组件库">ant-design-vue组件库</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/React/" title="分类于 React">React</a>
+<a href="/categories/JavaScript/" title="分类于 JavaScript">JavaScript</a>
 </div>
 
-    <span><a href="/web/React/React/" title="React笔记">React笔记</a></span>
+    <span><a href="/web/JavaScript/JavaScript/" title="JavaScript">JavaScript</a></span>
   </li>
 
       
@@ -538,6 +591,35 @@ Array.from () 可以将各种值转为真正的数组，并且还提供了 map �
 </div>
 
     <span><a href="/web/JavaScript/ES6%E7%AC%94%E8%AE%B0/" title="ES6笔记">ES6笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/React/" title="分类于 React">React</a>
+</div>
+
+    <span><a href="/web/React/umi/" title="React笔记">React笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/web/React/ZCDesign/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Mac/" title="分类于 Mac">Mac</a>
+</div>
+
+    <span><a href="/web/mac/vue3%E5%9F%BA%E7%A1%80/" title="Mac 操作相关">Mac 操作相关</a></span>
   </li>
 
   </ul>

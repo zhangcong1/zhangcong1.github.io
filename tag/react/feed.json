@@ -9,7 +9,17 @@
             "url": "https://zhangcong1.github.io/web/React/React/",
             "title": "React笔记",
             "date_published": "2021-07-18T11:24:12.434Z",
-            "content_html": "",
+            "content_html": "<p>yarn create react-app my-app --template typescript</p>\n",
+            "tags": [
+                "React"
+            ]
+        },
+        {
+            "id": "https://zhangcong1.github.io/web/React/umi/",
+            "url": "https://zhangcong1.github.io/web/React/umi/",
+            "title": "React笔记",
+            "date_published": "2021-07-18T11:24:12.434Z",
+            "content_html": "<h2 id=\"使用-umijs-搭建-react项目\"><a class=\"markdownIt-Anchor\" href=\"#使用-umijs-搭建-react项目\">#</a> 使用 UmiJs 搭建 React 项目</h2>\n<p>UmiJs 是一个可插拔的企业级 react 应用框架，集成 react，react-router，ant-design 等项目中常用的依赖包，可通过脚手架快速生成项目。</p>\n<h3 id=\"umijs-特点\"><a class=\"markdownIt-Anchor\" href=\"#umijs-特点\">#</a> UmiJs 特点</h3>\n<ul>\n<li>可扩展</li>\n<li>开箱即用 s</li>\n<li>企业级</li>\n<li>大量自研</li>\n<li>完备路由</li>\n<li>最新框架</li>\n</ul>\n<figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br><span class=\"line\">3</span><br><span class=\"line\">4</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">UmiJs2</span><br><span class=\"line\">yarn create umi</span><br><span class=\"line\">UmiJs3</span><br><span class=\"line\">yarn create @umijs/umi-app</span><br></pre></td></tr></table></figure>\n<p>.umirc.ts 文件：路由配置，插件配置<br>\n自动创建 page 及路由，动态路由 $id.js  [id].js</p>\n<p>![截屏 2021-11-19 22.34.01](/Users/zhangcong/Desktop/ 我的项目 / 博客 /hexo/source/_posts/web/React/UmiJs/ 截屏 2021-11-19 22.34.01.png)</p>\n<p>![截屏 2021-11-19 22.43.29](/Users/zhangcong/Desktop/ 我的项目 / 博客 /hexo/source/_posts/web/React/UmiJs/ 截屏 2021-11-19 22.43.29.png)</p>\n<h2 id=\"dva\"><a class=\"markdownIt-Anchor\" href=\"#dva\">#</a> Dva</h2>\n<p>models 文件夹<br>\n state  reducers 同步  effects 异步</p>\n<h2 id=\"react-hooks\"><a class=\"markdownIt-Anchor\" href=\"#react-hooks\">#</a> React Hooks</h2>\n<figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br><span class=\"line\">3</span><br><span class=\"line\">4</span><br><span class=\"line\">5</span><br><span class=\"line\">6</span><br><span class=\"line\">7</span><br><span class=\"line\">8</span><br><span class=\"line\">9</span><br><span class=\"line\">10</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">useEffect(()=&gt;&#123;&#125;, 可选值)</span><br><span class=\"line\">// 不传，每次都会触发</span><br><span class=\"line\">// 传 [] ,只会初始化执行一次</span><br><span class=\"line\">// 传 [value] , value值改变触发</span><br><span class=\"line\">useLayoutEffect  所有dom渲染完成后才同步执行effect，通常用来做dom相关操作</span><br><span class=\"line\">useMemo 缓存 只要state不改变就不会重新渲染</span><br><span class=\"line\">useCallback 函数缓存</span><br><span class=\"line\"></span><br><span class=\"line\">useContext</span><br><span class=\"line\">useReducer</span><br></pre></td></tr></table></figure>",
             "tags": [
                 "React"
             ]
