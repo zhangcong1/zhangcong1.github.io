@@ -12,12 +12,11 @@
         <category>JavaScript</category>
         <category>ES6</category>
         <category>Mac</category>
-        <category>React,JavaScript</category>
         <item>
             <guid isPermalink="true">https://zhangcong1.github.io/web/React/ZCDesign/</guid>
             <title>TypeScript笔记</title>
             <link>https://zhangcong1.github.io/web/React/ZCDesign/</link>
-            <category>React,JavaScript</category>
+            <category>React</category>
             <pubDate>Sat, 16 Oct 2021 16:54:08 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;typescript&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#typescript&#34;&gt;#&lt;/a&gt; TypeScript&lt;/h2&gt;
 &lt;h4 id=&#34;一-概念编程语言类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-概念编程语言类型&#34;&gt;#&lt;/a&gt; 一、概念：编程语言类型&lt;/h4&gt;
