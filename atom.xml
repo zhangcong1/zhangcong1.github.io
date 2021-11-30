@@ -9,9 +9,10 @@
     <category term="JavaScript" />
     <category term="ES6" />
     <category term="Mac" />
+    <category term="React,JavaScript" />
     <entry>
         <id>https://zhangcong1.github.io/web/React/ZCDesign/</id>
-        <title></title>
+        <title>TypeScript笔记</title>
         <link rel="alternate" href="https://zhangcong1.github.io/web/React/ZCDesign/"/>
         <content type="html">&lt;h2 id=&#34;typescript&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#typescript&#34;&gt;#&lt;/a&gt; TypeScript&lt;/h2&gt;
 &lt;h4 id=&#34;一-概念编程语言类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一-概念编程语言类型&#34;&gt;#&lt;/a&gt; 一、概念：编程语言类型&lt;/h4&gt;
@@ -151,6 +152,7 @@ const lessModuleRegex = /\.module\.less/;&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;jest&lt;/p&gt;
 </content>
+        <category term="React,JavaScript" />
         <updated>2021-10-16T08:54:08.906Z</updated>
     </entry>
     <entry>

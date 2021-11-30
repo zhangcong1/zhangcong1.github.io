@@ -258,7 +258,7 @@ Object.is 就是用来比较两个值是否严格相等</p>
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>TypeScript笔记</title>
     <url>/web/React/ZCDesign/</url>
     <content><![CDATA[<h2 id="typescript"><a class="markdownIt-Anchor" href="#typescript">#</a> TypeScript</h2>
 <h4 id="一-概念编程语言类型"><a class="markdownIt-Anchor" href="#一-概念编程语言类型">#</a> 一、概念：编程语言类型</h4>
@@ -398,6 +398,12 @@ const lessModuleRegex = /\.module\.less/;</p>
 </ul>
 <p>jest</p>
 ]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React,JavaScript</tag>
+      </tags>
   </entry>
   <entry>
     <title>React笔记</title>
